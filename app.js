@@ -6,7 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var ctrl = require('./controllers/index');
-// var users = require('./controllers/users');
+var users = require('./controllers/users');
 
 
 var app = express();
@@ -32,7 +32,7 @@ app.use(express.static(path.join(__dirname, 'public'))); // the 'public'folder i
 
 app.use('/cats', require('./controllers/cats'));
 app.use('/', require('./controllers/index'));
-// app.use('/users', users);
+app.use('/users', require('./controllers/users'));
 // app.use('/db', require('./controllers/db'));
 
 
