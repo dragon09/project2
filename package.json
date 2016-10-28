@@ -6,6 +6,7 @@
     "start": "gulp"
   },
   "dependencies": {
+    "bcryptjs": "^2.3.0",
     "body-parser": "^1.15.2",
     "bookshelf": "^0.10.2",
     "cookie-parser": "^1.4.3",

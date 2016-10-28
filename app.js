@@ -34,7 +34,7 @@ app.use(express.static(path.join(__dirname, 'public'))); // the 'public'folder i
 app.use('/cats', require('./controllers/cats'));
 app.use('/', require('./controllers/index'));
 app.use('/users', require('./controllers/users'));
-// app.use('/dubronvik', require('./controllers/dubronvik'));
+app.use('/', require('./controllers/pages'));
 // app.use('/db', require('./controllers/db'));
 
 
