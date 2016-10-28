@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 
 var ctrl = require('./controllers/index');
 var users = require('./controllers/users');
+// var dubronvik = require('./controllers/dubronvik');
 
 
 var app = express();
@@ -33,6 +34,7 @@ app.use(express.static(path.join(__dirname, 'public'))); // the 'public'folder i
 app.use('/cats', require('./controllers/cats'));
 app.use('/', require('./controllers/index'));
 app.use('/users', require('./controllers/users'));
+// app.use('/dubronvik', require('./controllers/dubronvik'));
 // app.use('/db', require('./controllers/db'));
 
 

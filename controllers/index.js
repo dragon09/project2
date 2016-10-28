@@ -3,7 +3,9 @@ var ctrl = express.Router();
 
 /* GET home page. */
 ctrl.get('/', function(req, res, next) {
-  res.render('index', { title: 'Game Of Thrones Lands' });
+  res.render('index', { title: 'Game Of Thrones Destinations' });
 });
+
+
 
 module.exports = ctrl;
