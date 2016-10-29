@@ -7,8 +7,12 @@ ctrl.get('/dubrovnik', function(req, res, next) {
 });
 
 /* GET /reykijvik */
-ctrl.get('/reykijvik', function(req,res){
-  res.render('page', { title: 'Reykijvik' });
+ctrl.get('/reykjavik', function(req, res, next){
+  res.render('page', { title: 'Reykjavík' });
+})
+
+ctrl.get('/', function (req, res, next) {
+  res.render('/index', {home: 'Home link'})
 })
 
 

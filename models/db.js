@@ -5,8 +5,10 @@ var db = require('knex')({	//# knex X
 		host: 'localhost',
 		user: 'l33tdba',
 		password: 'yellowpencil',
-		database: 'cats_fansite'
+		database: 'got_database'
 	}
 });
+
+
 
 module.exports = db;

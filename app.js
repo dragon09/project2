@@ -31,7 +31,7 @@ app.use(require('node-sass-middleware')({
 app.use(express.static(path.join(__dirname, 'public'))); // the 'public'folder is served as is.
 
 
-app.use('/cats', require('./controllers/cats'));
+
 app.use('/', require('./controllers/index'));
 app.use('/users', require('./controllers/users'));
 app.use('/', require('./controllers/pages'));
