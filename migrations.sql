@@ -1,28 +1,44 @@
 create database got_database;
   use got_database;
+
   create table users (
     id int not null auto_increment,
     first_name varchar(25) not null,
-    email varchar(255) not null,
+    email varchar(255) not null unique,
     password_hash varchar(61) not null,
     primary key (id)
   );
 
   create table locations (
-    id int not null auto_increment;
+    id int not null auto_increment,
     locations varchar(255) not null,
     primary key (id)
 );
 
 create table images (
   id int not null auto_increment;
-	locations varchar(255) not null, << make foreign key
-  path varchar(255), << location of the image, string like this /files/imagename.png
-  description varchar(255),
+	CONSTRAINT locations_fK varchar(255) not null,
+  FOREIGN KEY(locations),
   created_at DATETIME,
-	uploaded_by ..., << make foreign key
+	image BLOB not null,
+	description varchar(255),
+  path varchar(255),
+	CONSTRAINT id_fK uploaded_by varchar (255) not null,
+  FOREIGN KEY (id), 
   primary key (id)
 );
+
+
+
+
+
+
+-- Insert the row
+
+INSERT INTO images VALUES
+        (NULL,'Game_of_Thrones_title_card.jpg','/images/Game_of_Thrones_title_card.jpg');
+
+
 
 
 
