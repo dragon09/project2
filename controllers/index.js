@@ -1,6 +1,5 @@
 var express = require('express');
 var ctrl = express.Router();
-
 var express = require('express');
 // var userCtrl = express.Router();
 var usersForm = require('../models/users');
@@ -11,20 +10,21 @@ ctrl.get('/', function(req, res, next) {
   res.render('index', { title: 'Game Of Thrones Destinations' });
 });
 
-ctrl.get('home', renderHome)
-ctrl.post('/login/return_user', attemptToLogin)
+ctrl.get('/home', renderHome)
+ctrl.post('/login/new_user', attemptToLogin)
 ctrl.get('/form', renderForm);
+ctrl.get('login', renderLogin);
+ctrl.post('/thisIsMyPostRoute', function(req, res, next) {
+console.log(req.body, "this is req.body")
+res.send('Thank you for logging in')
+});
+// ctrl.post('/thisIsMyPostRoute', attemptToRegister, insertIntoUserAccountsTable);
+
 // ctrl.get('/login', function (req, res, next) {
 // });
-ctrl.get('login', renderLogin);
 // ctrl.get('/', function(req, res, next) {
 //   res.render('users', {})
 // });
-ctrl.post('/thisIsMyPostRoute', function(req, res, next) {
-console.log(req.body, "this is req.body")
-res.send('Thank You for logging in!')
-});
-// ctrl.post('/new', attemptToRegister, insertIntoUserAccountsTable);
 // ctrl.post('/register', attemptToRegister);
 // ctrl.post('/login', attemptToLogin);
 
