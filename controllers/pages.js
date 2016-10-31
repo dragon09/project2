@@ -13,9 +13,9 @@ ctrl.get('/reykjavik', function(req, res, next){
 });
 
 //link back to homepage
-ctrl.get('/', function(req, res, next) {
-  res.render('index')
-})
+// ctrl.get('/', function(req, res, next) {
+//   res.render('index', { title: 'Game Of Thrones Destinations' });
+// });
 
 
 ctrl.get('/osuna', function (req, res, next) {

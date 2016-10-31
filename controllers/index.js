@@ -14,7 +14,7 @@ ctrl.get('/home', renderHome)
 
 ctrl.post('/thisIsMyPostRoute', function(req, res, next) {
 console.log(req.body, "this is req.body")
-res.send('Thank you for logging in')
+res.send('Thank you for uploading an image.')
 });
 
 ctrl.get('/about', function(req, res){
