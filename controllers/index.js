@@ -12,11 +12,6 @@ ctrl.get('/', function(req, res, next) {
 
 ctrl.get('/home', renderHome)
 
-ctrl.post('/thisIsMyPostRoute', function(req, res, next) {
-console.log(req.body, "this is req.body")
-res.send('Thank you for uploading an image.')
-});
-
 ctrl.get('/about', function(req, res){
   res.render('about', {
     title: 'About page'
@@ -34,8 +29,7 @@ ctrl.get('/contact', function(req, res){
     title: 'Contact Us page'
   });
 });
-//NEED TO START SESSION
-// ctrl.post('/thisIsMyPostRoute', attemptToRegister, insertIntoUserAccountsTable);
+
 
 //multer
 ctrl.post('/home', multer({destination: './uploads'}).single('upload'), function (req, res) {
@@ -44,14 +38,17 @@ ctrl.post('/home', multer({destination: './uploads'}).single('upload'), function
   res.status(204).end();
 });
 
+ctrl.post('/thisIsMyPostRoute', function(req, res, next) {
+console.log(req.body, "this is req.body")
+res.send('Thank you for uploading an image.')
+});
 
-// ctrl.get('/login', function (req, res, next) {
+// fs.readFile(req.files.displayImage.path, function (err, data) {
+//   var newPath = __dirname + "/uploads/uploadedFileName";
+//   fs.writeFile(newPath, data, function (err) {
+//     res.redirect('/home');
+//   });
 // });
-// ctrl.get('/', function(req, res, next) {
-//   res.render('users', {})
-// });
-// ctrl.post('/register', attemptToRegister);
-// ctrl.post('/login', attemptToLogin);
 
 function renderHome(req, res, next) {
   console.log(req.session);
@@ -65,10 +62,9 @@ function renderHome(req, res, next) {
         res.render('home', result.attributes)
       });
   } else {
-    res.render('home', {first_name:'Anonymous', email:''});
+    res.render('home', {first_name:'No Name', email:''});
   }
 };
-
 
 
 
@@ -80,13 +76,6 @@ var model = new User(req.body).save().then(function (data) {
   res.render('home', data.attributes);
 });
 };
-
-
-
-
-ctrl.post('/uploadimage', multer({ dest: './uploads/'}).single('img'), function(req, res){
-  res.redirect('/home')
-})
 
 
 
