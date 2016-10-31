@@ -26,9 +26,9 @@ ctrl.get('/about', function(req, res){
   });
 });
 
-ctrl.get('/locations', function(req, res){
-  res.render('locations', {
-    title: 'Info about locations'
+ctrl.get('/addPost', function(req, res){
+  res.render('addPost', {
+    title: 'Post a comment'
   });
 });
 
