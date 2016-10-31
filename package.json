@@ -16,6 +16,7 @@
     "express-session": "^1.14.1",
     "fs": "0.0.1-security",
     "gulp": "^3.9.1",
+    "gulp-clean-css": "^2.0.13",
     "gulp-nodemon": "^2.2.1",
     "hbs": "^4.0.1",
     "knex": "^0.12.6",
