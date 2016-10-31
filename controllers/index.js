@@ -2,8 +2,7 @@ var express = require('express');
 var ctrl = express.Router();
 var express = require('express');
 // var userCtrl = express.Router();
-var usersForm = require('../models/users');
-var bcrypt = require('bcryptjs');
+var User = require('../models/User');
 var multer = require('multer');
 
 /* GET home page. */
@@ -12,9 +11,7 @@ ctrl.get('/', function(req, res, next) {
 });
 
 ctrl.get('/home', renderHome)
-ctrl.post('/login/new_user', attemptToLogin)
-ctrl.get('/form', renderForm);
-ctrl.get('login', renderLogin);
+
 ctrl.post('/thisIsMyPostRoute', function(req, res, next) {
 console.log(req.body, "this is req.body")
 res.send('Thank you for logging in')
@@ -57,65 +54,40 @@ ctrl.post('/home', multer({destination: './uploads'}).single('upload'), function
 // ctrl.post('/login', attemptToLogin);
 
 function renderHome(req, res, next) {
-  console.log(req.session)
-  usersModel.where('email', req.session.theResultsFromModelInsertion).fetch().then(
-    function (result) {
-      console.log(result)
-      res.json({result});
-    });
-    res.render('home', {})
+  console.log(req.session);
+
+  if(req.session.theResultsFromModelInsertion){
+
+    User.where('email', req.session.theResultsFromModelInsertion).fetch().then(
+      function (result) {
+        console.log(result)
+        // res.json({result});
+        res.render('home', result.attributes)
+      });
+  } else {
+    res.render('home', {first_name:'Anonymous', email:''});
+  }
 };
 
-function renderForm(req, res, next) {
-  res.render('form', {});
-};
 
-function renderLogin(req, res, next) {
-  res.render('login', {});
 
-};
 
 function insertIntoUserAccountsTable(req, res, next) {
   console.log(req.body);
 
 
-var model = new usersModel(req.body).save().then(function (data) {
+var model = new User(req.body).save().then(function (data) {
   res.render('home', data.attributes);
 });
 };
 
-function attemptToRegister(req, res, next) {
 
-  console.log(req.session);
-  var password = req.body.password;
-  var hashedPassword = createPasswordHash(password);
-  var account = new usersModel({
-    email: req.body.name,
-    password_hash: hashedPassword
-  }).save().then(function(result) {
-    eq.session.theResultsFromModelInsertion = result.attributes.email;
-    console.log(result.attributes.email);
-    res.redirect('/home')
 
-  });
-  };
 
-  function createPasswordHash (password) {
-  var salt = 10; // salt factor of 10
-  var hash = bcrypt.hashSync(password, salt);
-  return hash;
-  };
-  function comparePasswordHashes (input, db) {
-    return bcrypt.compareSync(input, db);
-  };
+ctrl.post('/uploadimage', multer({ dest: './uploads/'}).single('img'), function(req, res){
+  res.redirect('/home')
+})
 
-  function attemptToLogin(req, res, next) {
-    var password = req.body.password;
-    usersModel.where('email', req.body.email).fetch().then(
-      function (result) {
-        var attempt = comparePasswordHashes(req.body.password_hash, result.attributes.password_hash);
-        res.json({'is_logged_in': attempt})
-      });
-    };
+
 
 module.exports = ctrl;

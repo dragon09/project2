@@ -11,20 +11,24 @@
   </div>
 
 <div class="comment-text-block">
+
+<form class="" action="/uploadimage" method="post" enctype="multipart/form-data">
+  <input type="hidden" name="id" value="">
   <textarea name="text" type="text" value="" placeholder="Add a comment..."></textarea>
-  <button type="button" name="upload-comment-btn">Post</button>
-  <button type="button" name="upload-image-btn">Upload Image</button>
+  <!-- <button type="button" name="upload-comment-btn">Post</button> -->
+  <input type="file" name="img">
+  <input type="submit" name="upload-image-btn" value="Upload Image">
+</form>
 </div>
 </div>
 <br>
 <br>
 <div class="comment-block">
-
   <textarea name="comment-author"value="">Lovely hotel.</textarea>
   <img src="/images/fish.gif" 30x30 alt="" />
   <a href="#">grumpyfish</a><br>
   <span class="comment-time">October 30, 2016</span></a>
-  <svg class="svg-icon favorite" src="" height="14" width="12">
+  <!-- <svg class="svg-icon favorite" src="" height="14" width="12">
   <svg class="svg-icon icon-vote-comment-down" type="img" height="14" width="12" viewBox="0 1 0 0">
-  <a href="#" onclick="tweet(event);return false;" class="icont-twitter" title="Share in Twitter"></a>
+  <a href="#" onclick="tweet(event);return false;" class="icon-twitter" title="Share in Twitter"></a> -->
 </div>
