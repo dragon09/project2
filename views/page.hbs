@@ -12,12 +12,14 @@
 
 <div class="comment-text-block">
 
-<form class="" action="/uploadimage" method="post" enctype="multipart/form-data">
+<form method="post", enctype="multipart/form-data", action="/thisIsMyPostRoute">
+    <br>
   <input type="hidden" name="id" value="">
   <textarea name="text" type="text" value="" placeholder="Add a comment..."></textarea>
-  <!-- <button type="button" name="upload-comment-btn">Post</button> -->
-  <input type="file" name="img">
-  <input type="submit" name="upload-image-btn" value="Upload Image">
+  <br>
+  <p>Upload and share an image.</p>
+  <input type="file" name="upload" value="">
+  <input type="Submit">
 </form>
 </div>
 </div>

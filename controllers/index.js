@@ -44,7 +44,7 @@ res.send('Thank you for uploading an image.')
 });
 
 // fs.readFile(req.files.displayImage.path, function (err, data) {
-//   var newPath = __dirname + "/uploads/uploadedFileName";
+//   var newPath = __dirname + "/uploads/vic.png";
 //   fs.writeFile(newPath, data, function (err) {
 //     res.redirect('/home');
 //   });

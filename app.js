@@ -8,7 +8,7 @@ var multer = require('multer');
 var session = require('express-session');
 var ctrl = require('./controllers/index');
 var users = require('./controllers/users');
-
+var fs = require('fs');
 
 var app = express();
 

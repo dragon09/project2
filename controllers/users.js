@@ -68,6 +68,15 @@ function attemptToRegister(req, res, next) {
   });
 };
 
+ctrl.get('/logout', function (req, res) {
+ req.session = null;
+ res.send([
+   'You are now logged out.',
+   '&lt;br/>',
+   res.redirect('/home')
+ ].join(''));
+});
+
 
 function createPasswordHash (password) {
   var salt = 10; // salt factor of 10
