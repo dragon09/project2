@@ -12,6 +12,8 @@ create database got_database;
   create table locations (
     id int not null auto_increment,
     locations varchar(255) not null,
+    city varchar(255),
+    country varchar(255),
     primary key (id)
 );
 
@@ -24,19 +26,12 @@ create table images (
 	description varchar(255),
   path varchar(255),
 	CONSTRAINT id_fK uploaded_by varchar (255) not null,
-  FOREIGN KEY (id), 
+  FOREIGN KEY (id),
   primary key (id)
 );
 
-
-
-
-
-
--- Insert the row
-
-INSERT INTO images VALUES
-        (NULL,'Game_of_Thrones_title_card.jpg','/images/Game_of_Thrones_title_card.jpg');
+create user 'l33tdba'@'localhost' identified by 'l33tdba';
+GRANT ALL PRIVILEGES ON got_database.* to 'l33tdba'@'localhost';
 
 
 

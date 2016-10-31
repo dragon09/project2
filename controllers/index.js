@@ -4,6 +4,7 @@ var express = require('express');
 // var userCtrl = express.Router();
 var usersForm = require('../models/users');
 var bcrypt = require('bcryptjs');
+var multer = require('multer');
 
 /* GET home page. */
 ctrl.get('/', function(req, res, next) {
@@ -18,7 +19,34 @@ ctrl.post('/thisIsMyPostRoute', function(req, res, next) {
 console.log(req.body, "this is req.body")
 res.send('Thank you for logging in')
 });
+
+ctrl.get('/about', function(req, res){
+  res.render('about', {
+    title: 'About page'
+  });
+});
+
+ctrl.get('/locations', function(req, res){
+  res.render('locations', {
+    title: 'Info about locations'
+  });
+});
+
+ctrl.get('/contact', function(req, res){
+  res.render('contact', {
+    title: 'Contact Us page'
+  });
+});
+//NEED TO START SESSION
 // ctrl.post('/thisIsMyPostRoute', attemptToRegister, insertIntoUserAccountsTable);
+
+//multer
+ctrl.post('/home', multer({destination: './uploads'}).single('upload'), function (req, res) {
+  console.log(req.body);
+  console.log(req.file);
+  res.status(204).end();
+});
+
 
 // ctrl.get('/login', function (req, res, next) {
 // });
