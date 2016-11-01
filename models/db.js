@@ -9,6 +9,4 @@ var db = require('knex')({	//# knex X
 	}
 });
 
-
-
 module.exports = db;

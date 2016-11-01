@@ -1,9 +1,11 @@
 var express = require('express');
 var ctrl = express.Router();
-var express = require('express');
-// var userCtrl = express.Router();
 var User = require('../models/User');
+var Image = require('../models/Image');
 var multer = require('multer');
+
+
+
 
 /* GET home page. */
 ctrl.get('/', function(req, res, next) {
@@ -32,23 +34,31 @@ ctrl.get('/contact', function(req, res){
 
 
 //multer
-ctrl.post('/home', multer({destination: './uploads'}).single('upload'), function (req, res) {
+/* POST /home */
+ctrl.post('/home', multer({dest: './uploads'}).single('upload'), function (req, res) {
   console.log(req.body);
   console.log(req.file);
-  res.status(204).end();
+    // res.send("File uploaded");
+    // req.file.path
+
+    var account = new Image({
+      path: req.file.path,
+      description: req.body.title,
+      mimetype: req.file.mimetype,
+      comment: ''
+    }).save().then(function(result) {
+      res.send('Thank you for uploading an image.');
+    });
+
 });
 
-ctrl.post('/thisIsMyPostRoute', function(req, res, next) {
-console.log(req.body, "this is req.body")
-res.send('Thank you for uploading an image.')
-});
 
-// fs.readFile(req.files.displayImage.path, function (err, data) {
-//   var newPath = __dirname + "/uploads/vic.png";
-//   fs.writeFile(newPath, data, function (err) {
-//     res.redirect('/home');
-//   });
+// ctrl.post('/thisIsMyPostRoute', function(req, res, next) {
+// console.log(req.body, "this is req.body")
+// res.send('Thank you for uploading an image.')
 // });
+
+
 
 function renderHome(req, res, next) {
   console.log(req.session);

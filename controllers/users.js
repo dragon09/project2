@@ -26,9 +26,14 @@ ctrl.post('/login', attemptToLogin);
 /* GET /users/login */
 ctrl.get('/login', renderLogin);
 
+ctrl.get('/logout', renderLogout);
+
+function renderLogout(req, res, next) {
+  res.render('logout', {});
+};
+
 function renderLogin(req, res, next) {
   res.render('login', {});
-
 };
 
 function renderForm(req, res, next) {
@@ -68,12 +73,16 @@ function attemptToRegister(req, res, next) {
   });
 };
 
+
+//log out from /home.hbs
 ctrl.get('/logout', function (req, res) {
  req.session = null;
  res.send([
    'You are now logged out.',
    '&lt;br/>',
-   res.redirect('/home')
+  //  res.redirect('/users/login')
+  // res.redirect('/')
+  res.direct('/users/logout')
  ].join(''));
 });
 
