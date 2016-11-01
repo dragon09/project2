@@ -27,6 +27,7 @@
     "morgan": "^1.7.0",
     "multer": "^1.2.0",
     "mysql": "^2.11.1",
+    "mysql-crud": "^0.1.4",
     "node-sass-middleware": "^0.8.0",
     "serve-favicon": "^2.3.0"
   }

@@ -5,8 +5,6 @@ var Image = require('../models/Image');
 var multer = require('multer');
 
 
-
-
 /* GET home page. */
 ctrl.get('/', function(req, res, next) {
   res.render('index', { title: 'Game Of Thrones Destinations' });
@@ -16,13 +14,13 @@ ctrl.get('/home', renderHome)
 
 ctrl.get('/about', function(req, res){
   res.render('about', {
-    title: 'About page'
+    title: 'About Us'
   });
 });
 
 ctrl.get('/addPost', function(req, res){
   res.render('addPost', {
-    title: 'Post a comment'
+    title: 'Game of Thrones Destinations'
   });
 });
 

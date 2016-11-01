@@ -2,17 +2,63 @@ Thank you {{first_name}}. You are now logged in. Your email is: {{email}}.
 
 <h4>Update your profile.</h4>
 <br>
+<br>
+<div class="profile-container">
 <img src="/images/3" alt="" />
-
+<div class="upload-form">
 <form method="post" enctype="multipart/form-data" action="/home">
-  <input type="text" name="title" value="" placeholder="Placeholder">
-  <br>
-  <br>
+  <input type="text" name="title" value="" placeholder="Enter location or description of image">
   <p>Upload and share an image.</p>
   <input type="file" id="upload" name="upload">
+  <br>
   <input type="submit" value="Upload" name="Submit">
+  <br>
+  <br>
+  <br>
+  <button onclick="window.location='/users/logout';">Log Out</button>
+  </div>
 </form>
-<br>
-<br>
-<button onclick="window.location='/users/logout';">Log Out</button>
-<!-- <button onclick="window.location='/users/login';">Return User</button> -->
+</div>
+  <br>
+  <br>
+  <div class="user-profile">
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="row">
+    <form class="col s12">
+      <div class="row">
+        <div class="input-field col s6">
+          <input id="first_name" type="text" class="validate">
+          <label for="first_name">First Name</label>
+        </div>
+        <div class="input-field col s6">
+          <input id="last_name" type="text" class="validate">
+          <label for="last_name">Last Name</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="password" type="password" class="validate">
+          <label for="password">Password</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="email" type="email" class="validate">
+          <label for="email">Email</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s12">
+          <div class="input-field inline">
+            <input id="email" type="email" class="validate">
+            <label for="email" data-error="wrong" data-success="right">Email</label>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  <button type="button" name="update-profile">Update Profile</button>
+  </div>

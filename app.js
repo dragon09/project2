@@ -13,6 +13,18 @@ var cleanCSS = require('gulp-clean-css');
 
 var app = express();
 
+//render image
+var form = "<!DOCTYPE HTML><html><body>" +
+"<form method='post' enctype='multipart/form-data' action='/home'>"
+  "<input type='file' id='upload' name='upload'>"
+  "<input type='submit' value='Upload' name='Submit'>"
+  "</body></html>";
+
+// app.get('/',)
+
+
+
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
