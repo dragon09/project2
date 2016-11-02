@@ -1,14 +1,26 @@
 <h1>{{title}}</h1>
-<p><a href="/index">Home</a></p>
+
 
 <div class="container">
+  <!-- <div class="grid" data-masonry>
+  <div class="grid-item">1</div>
+  <div class="grid-item">2</div>
+
+</div> -->
 
 
-<div class="item">
-  <img src="/images/kingsLanding.jpg">
 
-  <div class="item-overlay top"></div>
-</div>
+{{#each images}}
+  <div class="item">
+    <img src="/uploads/{{attributes.path}}">
+
+    <div class="item-overlay top"></div>
+  </div>
+{{else}}
+This country doesn't have any photos.
+{{/each}}
+
+
 </div>
 
 
@@ -18,13 +30,17 @@
 <div class="comment-text-block">
 
 <form method="post" enctype="multipart/form-data" action="/home">
-    <br>
+  <br>
+  <p>Leave a comment</p>
+  <br>
   <input type="hidden" name="id" value="">
   <textarea name="text" type="text" value="" placeholder="Add a comment..."></textarea>
+  <a class="waves-effect waves-light btn">POST</a>
   <br>
-  <p>Upload and share an image.</p>
+  <br>
+  <!-- <p>Upload and share an image.</p>
   <input type="file" name="upload" value="">
-  <input type="Submit">
+  <input type="Submit"> -->
 </form>
 </div>
 </div>
@@ -32,15 +48,18 @@
 <br>
 <div class="comment-block">
   <textarea name="comment-author"value="">Lovely hotel.</textarea>
+  <a class="waves-effect waves-light btn">REPLY</a>
   <br>
-
+  <br>
+  <div class="comment-author">
   <img src="/images/fish.gif" 30x30 alt="" />
   <a href="#">grumpyfish</a><br>
   <span class="comment-time">October 30, 2016</span></a>
+  </div>
   <br>
   <br>
 
   <!-- <svg class="svg-icon favorite" src="" height="14" width="12">
   <svg class="svg-icon icon-vote-comment-down" type="img" height="14" width="12" viewBox="0 1 0 0">
   <a href="#" onclick="tweet(event);return false;" class="icon-twitter" title="Share in Twitter"></a> -->
-</div>
+<!-- </div> -->

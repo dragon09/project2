@@ -46,12 +46,15 @@ function attemptToLogin(req, res, next) {
   User.where('email', req.body.email).fetch().then(
     function (result) {
       console.log('DB result:', result);
+      debugger
       var attempt = comparePasswordHashes(req.body.password, result.attributes.password_hash);
       if(attempt){
         req.session.theResultsFromModelInsertion = result.attributes.email;
+        req.session.user = result.attributes;
+        res.redirect('/home')
+      } else {
+        res.status(403).send("Invalid credentials.");
       }
-      // res.json({'is_logged_in': attempt})
-      res.redirect('/home')
     });
 };
 
@@ -68,6 +71,7 @@ function attemptToRegister(req, res, next) {
     password_hash: hashedPassword
   }).save().then(function(result) {
     req.session.theResultsFromModelInsertion = result.attributes.email;
+    req.session.user = result.attributes;
     console.log(result.attributes.email);
     res.redirect('/home')
   });
@@ -75,14 +79,14 @@ function attemptToRegister(req, res, next) {
 
 
 //log out from /home.hbs
-ctrl.get('/logout', function (req, res) {
- req.session = null;
+ctrl.get('/users/logout', function (req, res) {
+ req.session.destroy();
  res.send([
    'You are now logged out.',
    '&lt;br/>',
-  //  res.redirect('/users/login')
-  // res.redirect('/')
-  res.direct('/users/logout')
+  // res.redirect('/users/login')
+  res.redirect('/')
+  // res.direct('/home')
  ].join(''));
 });
 

@@ -48,7 +48,7 @@ app.use(require('node-sass-middleware')({
   sourceMap: true
 }));
 app.use(express.static(path.join(__dirname, 'public'))); // the 'public'folder is served as is.
-
+app.use("/uploads", express.static(path.join(__dirname, 'uploads')));
 
 
 app.use('/', require('./controllers/index'));

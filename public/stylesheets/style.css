@@ -25,12 +25,6 @@ body {
   position: relative;
   background-color: #263238; }
 
-.item {
-  position: relative;
-  border: 1px solid #333;
-  margin: 2%;
-  overflow: hidden; }
-
 .item img {
   max-width: 100%;
   -moz-transition: all 0.3s;
@@ -58,15 +52,23 @@ a {
   color: #00B7FF; }
 
 .profile-container {
-  height: 500px;
-  width: 750px;
-  border: 2px solid gray; }
+  height: 900px;
+  width: 900px;
+  border: 2px solid gray;
+  clear: both; }
 
 .user-profile {
   height: 500px;
   width: 400px;
   border: 2 solid gray;
-  float: right; }
+  float: left;
+  clear: both; }
+
+.post_btn {
+  height: 60;
+  width: 90;
+  color: black;
+  background-color: gray; }
 
 #page-footer {
   height: 50px;
