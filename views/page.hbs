@@ -2,12 +2,6 @@
 
 
 <div class="container">
-  <!-- <div class="grid" data-masonry>
-  <div class="grid-item">1</div>
-  <div class="grid-item">2</div>
-
-</div> -->
-
 
 
 {{#each images}}
@@ -17,13 +11,13 @@
     <div class="item-overlay top"></div>
   </div>
 {{else}}
-This country doesn't have any photos.
+This country doesn't have any photos yet.
 {{/each}}
 
-
+<!-- end of container -->
 </div>
 
-
+<!-- post a comment -->
 <div container="comment-container">
   <div id="db-comment-id" data-comment-id="#"></div>
 
@@ -43,14 +37,19 @@ This country doesn't have any photos.
   <input type="Submit"> -->
 </form>
 </div>
+<!-- end of post a comment form container -->
 </div>
+
 <br>
 <br>
+<!-- Reply to a comment -->
 <div class="comment-block">
   <textarea name="comment-author"value="">Lovely hotel.</textarea>
   <a class="waves-effect waves-light btn">REPLY</a>
   <br>
   <br>
+
+
   <div class="comment-author">
   <img src="/images/fish.gif" 30x30 alt="" />
   <a href="#">grumpyfish</a><br>
@@ -62,4 +61,3 @@ This country doesn't have any photos.
   <!-- <svg class="svg-icon favorite" src="" height="14" width="12">
   <svg class="svg-icon icon-vote-comment-down" type="img" height="14" width="12" viewBox="0 1 0 0">
   <a href="#" onclick="tweet(event);return false;" class="icon-twitter" title="Share in Twitter"></a> -->
-<!-- </div> -->

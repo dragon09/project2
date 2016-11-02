@@ -10,7 +10,6 @@ var mime = require("mime");
 /*
 User.where('id', 2).fetch({ withRelated: ["image", "image.location"] }).then(
       function (result) {
-        debugger
       }
     );*/
 
@@ -31,7 +30,7 @@ ctrl.get('/', function(req, res, next) {
 });
 
 /*
-  THis is just for testing
+  THis is for testing
 */
 if (process.env.NODE_ENV !== "production") {
   ctrl.use('/home', function (req, res, next) {
@@ -112,29 +111,22 @@ ctrl.post('/home', multer({ storage: storage }).single('upload'), function (req,
   queue.then().then(function () {
     res.redirect("/home");
   }).catch(function (e) {
-    debugger
     res.send(e);
   });
 });
 
-
-// ctrl.post('/thisIsMyPostRoute', function(req, res, next) {
-// console.log(req.body, "this is req.body")
-// res.send('Thank you for uploading an image.')
-// });
 
 
 
 function renderHome(req, res, next) {
   console.log(req.session);
 
-  function renderTmpl (result) {
+  function renderTemplate (result) {
     var data = result.attributes;
     data.images = result.related("image").toArray().map(function (c) {
       c.attributes.location = Object(c.related("location")).attributes || {};
       return c.attributes;
     });
-    debugger
     data.last_image = data.images.slice(-1)[0];
 
     /*
@@ -158,10 +150,10 @@ function renderHome(req, res, next) {
             _result = result;
 
             return Promise.all(result.related("image").toArray().map(function (cImage) {
-              var loc = cImage.get("location");
-              if (!loc) { return null; }
-              return Location.where("id", loc).fetch().then(function (loc) {
-                cImage.relations.location = loc;
+              var location = cImage.get("location");
+              if (!location) { return null; }
+              return Location.where("id", location).fetch().then(function (location) {
+                cImage.relations.location = location;
               })
             }).filter(Boolean))
 
@@ -169,7 +161,7 @@ function renderHome(req, res, next) {
           console.log(_result)
 
           // res.json({result});
-          renderTmpl(_result)
+          renderTemplate(_result)
         }).catch(function (e) {
           res.send(e.stack);
         });
