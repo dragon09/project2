@@ -19,7 +19,7 @@ ctrl.get('/:country', function(req, res, next) {
       }
     }).then(function (images) {
         if (!currentCountry) { return; }
-      debugger
+      
         res.render('page', { title: currentCountry.location, images: images && images.toArray() })
     }).catch(function (err) {
       next(err)

@@ -1,18 +1,20 @@
-<h3>Thank you {{first_name}}. You are now logged in. Your email is: {{email}}.</h3>
+<h4>Thank you {{first_name}}. You are now logged in. Your email is: {{email}}.</h4>
 
-<h5>View Your profile.</h5>
+<h5>Upload an image and View Your profile.</h5>
 <br>
 <br>
+<!--/home  -->
 <div class="profile-container">
   {{#images}}
     <img class="uploaded-img" src="/uploads/{{path}}" />
   {{/images}}
-  <h3>Last image:</h3>
+  <h3>Last image uploaded:</h3>
   <img class="user-image" src="/uploads/{{last_image.path}}" alt="" />
   <hr>
 
   <br>
   <h4>Upload and share an image.</h4>
+  <h5>**Please select a Game of Thrones location to post your image.**</h5>
   <!-- multer upload form -->
   <form method="post" enctype="multipart/form-data" action="/home">
     <div class="location_form">
@@ -25,7 +27,9 @@
       <br>
     </div>
     <br>
-    <input type="text" name="title" value="{{caption}}" placeholder="Enter a caption">
+    <div class="caption_box">
+    <input type="text" name="title" value="{{caption}}" placeholder="Enter image caption">
+    </div>
     <br>
     <br>
     <br>
@@ -36,8 +40,8 @@
       <br>
       <h5>User Account Info</h5>
       <br>
+<!--user info from registration and rendered from database  -->
       <div class="row">
-
         <form class="col s12">
           <div class="row">
             <div class="input-field col s6">
@@ -49,19 +53,14 @@
               <label for="last_name">Last Name</label>
             </div>
           </div>
-          <!-- <div class="row">
-            <div class="input-field col s12">
-              <input name="password" id="password" type="password" class="validate">
-              <label for="password">Password</label>
-            </div>
-          </div> -->
           <div class="row">
             <div class="input-field col s12">
               <input value="{{email}}" name="email" id="email" type="email" class="validate">
               <label for="email">Email</label>
             </div>
           </div>
-          <input type="submit" value="update_profile" name="Update Profile">
+          <!-- <input type="submit" value="update_profile" name="Update"> -->
+          <input type="submit" value="Update/Upload" name="Update">
           <br>
           <br>
           <button onclick="window.location='/users/logout';">Log Out</button>

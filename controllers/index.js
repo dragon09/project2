@@ -107,21 +107,18 @@ ctrl.post('/home', multer({ storage: storage }).single('upload'), function (req,
   } else {
     queue = updateUser();
   }
-
   queue.then().then(function () {
-    res.redirect("/home");
+  res.redirect("/home");
   }).catch(function (e) {
     res.send(e);
   });
 });
 
 
-
-
 function renderHome(req, res, next) {
   console.log(req.session);
 
-  function renderTemplate (result) {
+  function renderTmpl (result) {
     var data = result.attributes;
     data.images = result.related("image").toArray().map(function (c) {
       c.attributes.location = Object(c.related("location")).attributes || {};
@@ -161,7 +158,7 @@ function renderHome(req, res, next) {
           console.log(_result)
 
           // res.json({result});
-          renderTemplate(_result)
+          renderTmpl(_result)
         }).catch(function (e) {
           res.send(e.stack);
         });

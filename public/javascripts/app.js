@@ -29,6 +29,7 @@ $(document).ready(function () {
          reader.readAsDataURL(this.files[0]);
       });
 
+//pop-up window 
   $("#start_button").click(startGame);
 
   function startGame() {
