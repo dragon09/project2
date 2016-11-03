@@ -18,8 +18,8 @@ ctrl.get('/register', renderForm);
 ctrl.post('/register', attemptToRegister);
 
 /* POST /users/login/new_user */
-ctrl.post('/users/login/new_user', attemptToLogin)
-
+// ctrl.post('/users/login/new_user', attemptToLogin)
+ctrl.post('/users/login', attemptToLogin)
 /* POST /users/login */
 ctrl.post('/login', attemptToLogin);
 
@@ -78,13 +78,9 @@ function attemptToRegister(req, res, next) {
 };
 
 
-//log out from /home.hbs--NOT SURE IF WORKING
-
 /* GET /users/logout */
 ctrl.get('/logout', function (req, res) {
-
-
- //res.send('You are now logged out')
+ res.send('You are now logged out')
 
  if(req.session.user){
    console.log('Logging out user', req.session.user )

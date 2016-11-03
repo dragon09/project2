@@ -36,11 +36,9 @@ ctrl.get('/', function(req, res, next) {
 */
 if (process.env.NODE_ENV !== "production") {
   ctrl.use('/home', function (req, res, next) {
-
     if (req.session.user) {
       return next();
     }
-
     next();
 
     /*User.where("id", 2).fetch().then(function (result) {

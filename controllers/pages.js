@@ -24,7 +24,6 @@ ctrl.get('/:country', function(req, res, next) {
     }).catch(function (err) {
       next(err)
     })
-
 });
 
 
@@ -43,11 +42,11 @@ ctrl.get('/spain', function (req, res, next) {
 });
 
 ctrl.get('/malta', function (req, res, next) {
-  res.render('page', { title: 'Malta'});
+  res.render('page', { title: 'This is Malta!'});
 });
 
 ctrl.get('/ireland', function (req, res, next) {
-  res.render('page', { title: 'The Dark Hedges'});
+  res.render('page', { title: 'Welcome to Winterfell'});
 });
 
 
