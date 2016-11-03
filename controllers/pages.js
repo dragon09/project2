@@ -42,8 +42,8 @@ ctrl.get('/spain', function (req, res, next) {
   res.render('page', { title: 'Khaleesi'});
 });
 
-ctrl.get('/scotland', function (req, res, next) {
-  res.render('page', { title: 'Doune Castle'});
+ctrl.get('/malta', function (req, res, next) {
+  res.render('page', { title: 'Malta'});
 });
 
 ctrl.get('/ireland', function (req, res, next) {

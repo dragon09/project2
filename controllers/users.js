@@ -47,7 +47,6 @@ function attemptToLogin(req, res, next) {
   User.where('email', req.body.email).fetch().then(
     function (result) {
       console.log('DB result:', result);
-      debugger
       var attempt = comparePasswordHashes(req.body.password, result.attributes.password_hash);
       if(attempt){
         req.session.theResultsFromModelInsertion = result.attributes.email;
