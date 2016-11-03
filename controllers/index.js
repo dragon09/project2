@@ -6,12 +6,14 @@ var Location = require('../models/Location');
 var multer = require('multer');
 var crypto = require("crypto");
 var mime = require("mime");
+var fs = require('fs');
 
 /*
 User.where('id', 2).fetch({ withRelated: ["image", "image.location"] }).then(
       function (result) {
       }
     );*/
+
 
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {

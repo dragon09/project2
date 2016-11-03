@@ -14,15 +14,11 @@ var cleanCSS = require('gulp-clean-css');
 var app = express();
 
 //render image
-var form = "<!DOCTYPE HTML><html><body>" +
-"<form method='post' enctype='multipart/form-data' action='/home'>"
-  "<input type='file' id='upload' name='upload'>"
-  "<input type='submit' value='Upload' name='Submit'>"
-  "</body></html>";
-
-// app.get('/',)
-
-
+// var form = "<!DOCTYPE HTML><html><body>" +
+// "<form method='post' enctype='multipart/form-data' action='/home'>"
+//   "<input type='file' id='upload' name='upload'>"
+//   "<input type='submit' value='Upload' name='Submit'>"
+//   "</body></html>";
 
 
 // view engine setup
@@ -36,6 +32,8 @@ app.use(session({
 }));
 
 // uncomment after placing your favicon in /public
+
+
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
@@ -69,9 +67,7 @@ app.use(function(req, res, next) {
 });
 
 // error handlers
-
-// development error handler
-// will print stacktrace
+// error handler will print stacktrace
 if (app.get('env') === 'development') {
   app.use(function(err, req, res, next) {
     res.status(err.status || 500);
@@ -82,8 +78,7 @@ if (app.get('env') === 'development') {
   });
 }
 
-// production error handler
-// no stacktraces leaked to user
+// production error handler no stacktraces leaked to user
 app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error', {

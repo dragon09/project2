@@ -25,8 +25,8 @@ create table images (
 	image BLOB not null,
 	description varchar(255),
   path varchar(255),
-	CONSTRAINT id_fK uploaded_by varchar (255) not null,
-  FOREIGN KEY (id),
+	-- CONSTRAINT id_fK uploaded_by varchar (255) not null,
+  -- FOREIGN KEY (id),
   primary key (id)
 );
 

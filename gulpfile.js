@@ -84,7 +84,7 @@ gulp.task('db_drop_user_accounts_table', function() {
 });
 
 gulp.task('db_create_locations_table', function(){
-    var sqlString = "drop table news_feed;";
+    var sqlString = "drop table locations;";
     //callback(response)
     function cb(res) {
         console.log(res);
@@ -94,7 +94,7 @@ gulp.task('db_create_locations_table', function(){
 });
 
 gulp.task('db_drop_images', function(){
-    var sqlString = "drop table cats;";
+    var sqlString = "drop table images;";
     //callback(response)
     function cb(res) {
         console.log(res);
