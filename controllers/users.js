@@ -26,11 +26,12 @@ ctrl.post('/login', attemptToLogin);
 /* GET /users/login */
 ctrl.get('/login', renderLogin);
 
-ctrl.get('/logout', renderLogout);
+/*ctrl.get('/logout', renderLogout);
 
 function renderLogout(req, res, next) {
   res.render('logout', {});
 };
+*/
 
 function renderLogin(req, res, next) {
   res.render('login', {});
@@ -79,14 +80,22 @@ function attemptToRegister(req, res, next) {
 
 
 //log out from /home.hbs--NOT SURE IF WORKING
-ctrl.get('/users/logout', function (req, res) {
- req.session.destroy();
- res.send([
-   'You are now logged out.',
-   '&lt;br/>',
-  res.direct('/home')
-  // res.direct('/')
- ].join(''));
+
+/* GET /users/logout */
+ctrl.get('/logout', function (req, res) {
+
+
+ //res.send('You are now logged out')
+
+ if(req.session.user){
+   console.log('Logging out user', req.session.user )
+   req.session.destroy();
+   res.render('logout');
+
+ } else {
+   console.log('User is not logged in, so cannot be logged out');
+   res.redirect('/home');
+ }
 });
 
 

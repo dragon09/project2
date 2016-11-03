@@ -19,7 +19,7 @@ ctrl.get('/:country', function(req, res, next) {
       }
     }).then(function (images) {
         if (!currentCountry) { return; }
-      
+
         res.render('page', { title: currentCountry.location, images: images && images.toArray() })
     }).catch(function (err) {
       next(err)
@@ -28,28 +28,28 @@ ctrl.get('/:country', function(req, res, next) {
 });
 
 
-/*
-ctrl.get('/reykjavik', function(req, res, next){
-  res.render('page', { title: 'Reykjavík' });
+
+ctrl.get('/croatia', function(req, res, next){
+  res.render('page', { title: 'Welcome to Kings Landing' });
 });
 
-//link back to homepage
-// ctrl.get('/', function(req, res, next) {
-//   res.render('index', { title: 'Game Of Thrones Destinations' });
-// });
-
-ctrl.get('/osuna', function (req, res, next) {
-  res.render('page', { title: 'Plaza de Toros'});
+ctrl.get('/iceland', function(req, res, next){
+  res.render('page', { title: 'Welcome to The Wall' });
 });
 
-ctrl.get('/edinburgh', function (req, res, next) {
+
+ctrl.get('/spain', function (req, res, next) {
+  res.render('page', { title: 'Khaleesi'});
+});
+
+ctrl.get('/scotland', function (req, res, next) {
   res.render('page', { title: 'Doune Castle'});
 });
 
-ctrl.get('/northireland', function (req, res, next) {
+ctrl.get('/ireland', function (req, res, next) {
   res.render('page', { title: 'The Dark Hedges'});
 });
-*/
+
 
 
 module.exports = ctrl;

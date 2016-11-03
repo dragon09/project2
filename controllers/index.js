@@ -41,10 +41,12 @@ if (process.env.NODE_ENV !== "production") {
       return next();
     }
 
-    User.where("id", 2).fetch().then(function (result) {
+    next();
+
+    /*User.where("id", 2).fetch().then(function (result) {
       req.session.user = result.attributes;
       next();
-    })
+    })*/
   });
 }
 
@@ -120,50 +122,56 @@ ctrl.post('/home', multer({ storage: storage }).single('upload'), function (req,
 function renderHome(req, res, next) {
   console.log(req.session);
 
-  function renderTmpl (result) {
-    var data = result.attributes;
-    data.images = result.related("image").toArray().map(function (c) {
+
+
+  function renderTmpl (resultUser) {
+    var user = resultUser.attributes;
+    user.images = resultUser.related("image").toArray().map(function (c) {
       c.attributes.location = Object(c.related("location")).attributes || {};
       return c.attributes;
     });
-    data.last_image = data.images.slice(-1)[0];
+    user.last_image = user.images.slice(-1)[0];
 
     /*
-    data.first_name = data.first_name || "No Name";
-    data.last_name = data.last_name || "No Name";
-    data.caption = data.caption || "No Name";
-    data.email = data.email || "No Name";*/
+    user.first_name = user.first_name || "No Name";
+    user.last_name = user.last_name || "No Name";
+    user.caption = user.caption || "No Name";
+    user.email = user.email || "No Name";*/
 
     Location.fetchAll().then(function (locations) {
       //locations.toArray().map(function (c) { return { id: c.attributes.id, label: c.attributes.location }})
-      data.locations = locations.toArray();
-      res.render('home', data)
+      user.locations = locations.toArray();
+      res.render('home', user)
     }).catch(function (err) {
       res.send(err);
     })
   }
 
-  var _result = null;
+
+
+
+  var _resultUser = null;
   User.where('id', req.session.user.id).fetch({ withRelated: ["image"] }).then(
-        function (result) {
-            _result = result;
+    function (resultUser) {
+        _resultUser = resultUser;
 
-            return Promise.all(result.related("image").toArray().map(function (cImage) {
-              var location = cImage.get("location");
-              if (!location) { return null; }
-              return Location.where("id", location).fetch().then(function (location) {
-                cImage.relations.location = location;
-              })
-            }).filter(Boolean))
+        return Promise.all(resultUser.related("image").toArray().map(function (cImage) {
+          var location = cImage.get("location");
+          if (!location) { return null; }
+          return Location.where("id", location).fetch().then(function (location) {
+            cImage.relations.location = location;
+          })
+        }).filter(Boolean))
 
-        }).then(function () {
-          console.log(_result)
+    }).then(function () {
+      console.log(_resultUser)
 
-          // res.json({result});
-          renderTmpl(_result)
-        }).catch(function (e) {
-          res.send(e.stack);
-        });
+      //res.json(_resultUser);
+
+      renderTmpl(_resultUser)
+    }).catch(function (e) {
+      res.send(e.stack);
+    });
 };
 
 
