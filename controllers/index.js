@@ -34,28 +34,29 @@ ctrl.get('/', function(req, res, next) {
 /*
   THis is for testing
 */
-if (process.env.NODE_ENV !== "production") {
-  ctrl.use('/home', function (req, res, next) {
-    if (req.session.user) {
-      return next();
-    }
-    next();
-
-    /*User.where("id", 2).fetch().then(function (result) {
-      req.session.user = result.attributes;
-      next();
-    })*/
-  });
-}
-
-ctrl.use('/home', function (req, res, next) {
-
-  if (req.session.user) {
-    return next();
-  }
-
-  res.redirect('/users/register');
-});
+// if (process.env.NODE_ENV !== "production") {
+//   ctrl.use('/home', function (req, res, next) {
+//     console.log("This is hit.");
+//     if (req.session.user) {
+//       return next();
+//     }
+//     next();
+//
+//     /*User.where("id", 2).fetch().then(function (result) {
+//       req.session.user = result.attributes;
+//       next();
+//     })*/
+//   });
+// }
+//
+// ctrl.use('/home', function (req, res, next) {
+//
+//   if (req.session.user) {
+//     return next();
+//   }
+//
+//   res.redirect('/users/register');
+// });
 
 ctrl.get('/home', renderHome)
 

@@ -29,13 +29,17 @@ $(document).ready(function () {
          reader.readAsDataURL(this.files[0]);
       });
 
-//pop-up window
-  $("#start_button").click(startGame);
+      $(document).ready(function(){
+        $('.carousel').carousel();
+      });  
 
-  function startGame() {
-    console.log('start button clicked')
-    $('.instructions').hide();
-  }
+//pop-up window
+  // $("#start_button").click(startGame);
+  //
+  // function startGame() {
+  //   console.log('start button clicked')
+  //   $('.instructions').hide();
+  // }
 
 //   var howToPlay = $(".howTo")
 //

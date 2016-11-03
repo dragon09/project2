@@ -80,8 +80,7 @@ function attemptToRegister(req, res, next) {
 
 /* GET /users/logout */
 ctrl.get('/logout', function (req, res) {
- res.send('You are now logged out')
-
+  console.log(req.session.user, "this is session");
  if(req.session.user){
    console.log('Logging out user', req.session.user )
    req.session.destroy();
