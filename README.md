@@ -40,11 +40,11 @@ Feel free to sign-in share an image or post a comment to help inspire others.
 
 
 **ORIGINAL WIREFRAMES**
-![WIREFRAME 1](screen/GofT_project_details.pdf)
+![WIREFRAME 1](screen/GofT_project_details.jpg)
 
 **FUNDAMENTAL CODE**
-![WIREFRAME 2](screen/Screen Shot 2016-10-30 at 11.13.00 AM.png)
-![WIREFRAME 3](screen/Screen Shot 2016-10-30 at 11.13.50 AM.png)
+![WIREFRAME 2](screen/Screen Shot 2016-10-30 at 11.13.00 AM.jpg)
+![WIREFRAME 3](screen/Screen Shot 2016-10-30 at 11.13.50 AM.jpg)
 
 **APP FEATURES:**
 Theme of the app is inspired by the beautiful film locations.  The artistic design of the banner, logo, border and map are detail oriented.  The user is able to create an new account with return user log-in a session functionality and log out.  The user is able to upload share and include a caption to their image. An carousel gives user the ability to flip through images for each country's location.  
