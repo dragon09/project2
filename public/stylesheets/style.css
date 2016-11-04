@@ -17,7 +17,8 @@ body {
 .nav-wrapper {
   height: 60px;
   display: inline-block;
-  background-color: #263238; }
+  background-color: #263238;
+  border: 2px solid white; }
 
 .brand-logo-center {
   height: 60px; }
@@ -88,7 +89,6 @@ a {
   background-color: #263238;
   color: white;
   text-align: left;
-  height: 1200px;
   width: 600px;
   margin-left: 300px;
   margin-right: 200px;
