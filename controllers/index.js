@@ -8,11 +8,6 @@ var crypto = require("crypto");
 var mime = require("mime");
 var fs = require('fs');
 
-/*
-User.where('id', 2).fetch({ withRelated: ["image", "image.location"] }).then(
-      function (result) {
-      }
-    );*/
 
 
 var storage = multer.diskStorage({
@@ -28,55 +23,51 @@ var storage = multer.diskStorage({
 
 /* GET home page. */
 ctrl.get('/', function(req, res, next) {
-  res.render('index', { title: 'Game Of Thrones Destinations' });
+  res.render('index', { title: 'Game Of Thrones ||  Globe Trott' });
 });
 
 /*
   THis is for testing
 */
-// if (process.env.NODE_ENV !== "production") {
-//   ctrl.use('/home', function (req, res, next) {
-//     console.log("This is hit.");
-//     if (req.session.user) {
-//       return next();
-//     }
-//     next();
-//
-//     /*User.where("id", 2).fetch().then(function (result) {
-//       req.session.user = result.attributes;
-//       next();
-//     })*/
-//   });
-// }
-//
-// ctrl.use('/home', function (req, res, next) {
-//
-//   if (req.session.user) {
-//     return next();
-//   }
-//
-//   res.redirect('/users/register');
-// });
+if (process.env.NODE_ENV !== "production") {
+  ctrl.use('/home', function (req, res, next) {
+    if (req.session.user) {
+      return next();
+    }
+    next();
+
+  });
+}
+
+ctrl.use('/home', function (req, res, next) {
+
+  if (req.session.user) {
+    return next();
+  }
+
+  res.redirect('/users/register');
+});
 
 ctrl.get('/home', renderHome)
 
 ctrl.get('/about', function(req, res){
   res.render('about', {
-    title: 'About Us'
+    title: 'Game Of Thrones ||  Globe Trott'
   });
 });
 
 ctrl.get('/addPost', function(req, res){
   res.render('addPost', {
-    title: 'Game of Thrones Destinations'
+  title: 'Game Of Thrones ||  Globe Trott'
   });
 });
 
 ctrl.get('/contact', function(req, res){
   res.render('contact', {
-    title: 'Contact Us page'
+    title: 'Game Of Thrones ||  Globe Trott'
   });
 });
+
 
 
 //multer
@@ -146,9 +137,7 @@ function renderHome(req, res, next) {
     })
   }
 
-
-
-
+//user selects locations and views log in info to upload and update gets data from db
   var _resultUser = null;
   User.where('id', req.session.user.id).fetch({ withRelated: ["image"] }).then(
     function (resultUser) {

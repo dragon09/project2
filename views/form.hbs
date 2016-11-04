@@ -1,22 +1,20 @@
-<div>
+<div class="register">
 <h3>Welcome to.....</h3>
 <h3>Game of Thrones Globe Trott</h3>
 <br>
 <h5>Sign In or create a new user account.</h5>
 <br>
-<!-- <a href="/auth/google" class="btn btn-danger btn-lg" role="button"><span class="glyphicon glyphicon-user"></span> Sign in with Google</a>
-<a href="/auth/facebook" class="btn btn-primary btn-lg" role="button"><span class="glyphicon glyphicon-user"></span> Sign in with Facebook</a> -->
 <br>
 <br>
 <form action="/users/register" method="post">
   <input type="text" name="first_name" value="" placeholder="Enter your first name">
   <input type="text" name="email" value="" placeholder="Enter your email address">
   <input type="password" name="password" placeholder="Enter password" required><br>
-  <input type="submit" value="Submit" class="submit"></input>
+  <input class="form_btn" type="submit" value="Submit"></input>
    <br>
    <br>
    <p>Already have an account?</p>
-   <button onclick="window.location='/users/login';" class="submit">Return User</button>
+   <button onclick="window.location.href='/users/login';" class="login_btn">Return User</button>
 </form>
 
 
