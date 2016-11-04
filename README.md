@@ -2,7 +2,7 @@
 
 Game of Thrones || Globe Trott
 
-![GAME OF THRONES GLOBE TROTT](/images/goft-banner-2.png)
+![GAME OF THRONES GLOBE TROTT](public/images/goft-banner.png)
 *************************************************
 
 ### WDI PROJECT 2
