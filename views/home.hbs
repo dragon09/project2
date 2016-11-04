@@ -1,6 +1,9 @@
-<h4>Thank you {{first_name}}. You are now logged in. Your email is: {{email}}.</h4>
-
-<h5>Upload an image and View Your profile.</h5>
+{{title}}
+<div class="home_user">
+<br>
+<h5>Thank you {{first_name}}. You are now logged in. Your email is: {{email}}.</h5>
+<br>
+<h6>Upload an image and View Your profile.</h6>
 <br>
 <br>
 <!--/home  -->
@@ -8,12 +11,11 @@
   {{#images}}
     <img class="uploaded-img" src="/uploads/{{path}}" />
   {{/images}}
-  <h3>Last image uploaded:</h3>
+  <h5>Last image uploaded:</h5>
   <img class="user-image" src="/uploads/{{last_image.path}}" alt="" />
   <hr>
-
   <br>
-  <h4>Upload and share an image.</h4>
+  <h5>Upload and share an image.</h5>
   <h5>**Please select a Game of Thrones location to post your image.**</h5>
   <!-- multer upload form -->
   <form method="post" enctype="multipart/form-data" action="/home">
@@ -49,7 +51,9 @@
     <br>
     <br>
     <!-- <input type="submit" value="update_profile" name="Update"> -->
-    <input type="submit" value="Update/Upload" name="Update">
+    <input type="submit" value="Update/Upload" name="Update" class='home_userbtn'>
+    <br>
+    <br>
     </div>
     <hr>
     <div class="user-profile">
@@ -77,15 +81,12 @@
 
           <br>
           <br>
-          <button onclick="window.location.href='/users/logout';">Log Out</button>
-
+          <button class="logout" onclick="window.location.href='/users/logout';">Log Out</button>
       </div>
     </div>
     </form>
     <hr>
     <br>
-
-    <!-- </div> -->
-
+    </div>
     <!-- end of container -->
-</div>
+    </div>

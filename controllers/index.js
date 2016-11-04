@@ -68,6 +68,19 @@ ctrl.get('/contact', function(req, res){
   });
 });
 
+ctrl.get('/users/login', function(req, res){
+  res.render('login', {
+    title: 'Game Of Thrones ||  Globe Trott'
+  });
+});
+
+
+ctrl.get('/users/register', function(req, res){
+  res.render('form', {
+    title: 'Game Of Thrones ||  Globe Trott'
+  });
+});
+
 
 
 //multer
