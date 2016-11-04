@@ -40,9 +40,7 @@ Feel free to sign-in share an image or post a comment to help inspire others.
 
 
 **ORIGINAL WIREFRAMES**
-![WIREFRAME 1](screen/GofT_project_details.jpg)
-
-**WIREFRAMES**
+<!-- ![WIREFRAME 1](screen/GofT_project_details.jpg) -->
 ![WIREFRAME 2](screen/Screen Shot 2016-11-03 at 10.36.39 PM.jpg)
 ![WIREFRAME 3](screen/Screen Shot 2016-11-03 at 10.37.26 PM.jpg)
 

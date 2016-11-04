@@ -20,7 +20,12 @@ ctrl.get('/:country', function(req, res, next) {
     }).then(function (images) {
         if (!currentCountry) { return; }
 
-        res.render('page', { title: currentCountry.location, images: images && images.toArray() })
+        var images = images && images.toArray();
+        //console.log('IMAGES', images)
+
+        //images.forEach( image=>console.log('IMG', image) )
+
+        res.render('page', { title: currentCountry.location, images: images })
     }).catch(function (err) {
       next(err)
     })

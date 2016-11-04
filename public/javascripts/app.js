@@ -29,9 +29,10 @@ $(document).ready(function () {
          reader.readAsDataURL(this.files[0]);
       });
 
-      $(document).ready(function(){
+      //$(document).ready(function(){
+        console.log('starting carousel')
         $('.carousel').carousel();
-      });  
+      //});
 
 //pop-up window
   // $("#start_button").click(startGame);

@@ -144,6 +144,9 @@ function renderHome(req, res, next) {
     Location.fetchAll().then(function (locations) {
       //locations.toArray().map(function (c) { return { id: c.attributes.id, label: c.attributes.location }})
       user.locations = locations.toArray();
+
+        // user.last_image.path
+        console.log('USER!!', user)
       res.render('home', user)
     }).catch(function (err) {
       res.send(err);

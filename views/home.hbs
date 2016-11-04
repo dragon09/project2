@@ -11,8 +11,12 @@
   {{#images}}
     <img class="uploaded-img" src="/uploads/{{path}}" />
   {{/images}}
+
+  {{#if last_image}}
   <h5>Last image uploaded:</h5>
   <img class="user-image" src="/uploads/{{last_image.path}}" alt="" />
+  {{/if}}
+
   <hr>
   <br>
   <h5>Upload and share an image.</h5>
