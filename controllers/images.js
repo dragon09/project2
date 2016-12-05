@@ -8,6 +8,9 @@ ctrl.get('/:id', function(req, res){
   Image.where('id', req.params.id).fetch().then(
     function (result) {
       console.log(result)
+      if (!result) {
+        return res.end();
+      }
       // res.json({result});
       // res.render('home', result.attributes)
       var mimetype = 'image/jpeg';

@@ -31,7 +31,14 @@ $(document).ready(function () {
 
       //$(document).ready(function(){
         console.log('starting carousel')
-        $('.carousel').carousel();
+        
+        $('.carousel.full-width-carousel').carousel({
+           full_width: true
+       });
+       $('.carousel:not(.full-width-carousel)').carousel();
+        $('.slider').slider({
+           full_width: true
+       });
       //});
 
 //pop-up window

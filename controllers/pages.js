@@ -24,14 +24,14 @@ ctrl.get('/:country', function(req, res, next) {
         //console.log('IMAGES', images)
 
         //images.forEach( image=>console.log('IMG', image) )
-
-        res.render('page', { title: currentCountry.location, images: images })
+        //console.log(currentCountry)
+        res.render('page', { title: currentCountry.attributes.location, images: images })
     }).catch(function (err) {
       next(err)
     })
 });
 
-
+/*
 
 ctrl.get('/croatia', function(req, res, next){
   res.render('page', { title: 'Welcome to Kings Landing' });
@@ -43,7 +43,7 @@ ctrl.get('/iceland', function(req, res, next){
 
 
 ctrl.get('/spain', function (req, res, next) {
-  res.render('page', { title: 'Khaleesi'});
+  res.render('page', { title: 'Welcome to Dorne'});
 });
 
 ctrl.get('/malta', function (req, res, next) {
@@ -53,7 +53,7 @@ ctrl.get('/malta', function (req, res, next) {
 ctrl.get('/ireland', function (req, res, next) {
   res.render('page', { title: 'Welcome to Winterfell'});
 });
-
+*/
 
 
 module.exports = ctrl;

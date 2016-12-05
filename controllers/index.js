@@ -82,7 +82,6 @@ ctrl.get('/users/register', function(req, res){
 });
 
 
-
 //multer
 /* POST /home */
 ctrl.post('/home', multer({ storage: storage }).single('upload'), function (req, res) {
