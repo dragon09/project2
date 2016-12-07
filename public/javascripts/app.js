@@ -31,7 +31,7 @@ $(document).ready(function () {
 
       //$(document).ready(function(){
         console.log('starting carousel')
-        
+
         $('.carousel.full-width-carousel').carousel({
            full_width: true
        });
@@ -41,20 +41,5 @@ $(document).ready(function () {
        });
       //});
 
-//pop-up window
-  // $("#start_button").click(startGame);
-  //
-  // function startGame() {
-  //   console.log('start button clicked')
-  //   $('.instructions').hide();
-  // }
 
-//   var howToPlay = $(".howTo")
-//
-//   howToPlay.click(newHowTo)
-//
-//
-// $(".howTo").click(function(){
-//       $(".overlay").fadeIn(1000);
-//   });
 });
